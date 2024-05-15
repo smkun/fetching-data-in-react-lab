@@ -1,0 +1,221 @@
+@font-face {
+    font-family: "StarJedi";
+    src: url("./assets/fonts/Starjedi.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "StarJhol";
+    src: url("./assets/fonts/Starjhol.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "StarJout";
+    src: url("./assets/fonts/Starjout.ttf") format("truetype");
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    background: #000; /* Dark background */
+    margin: 0;
+    padding: 0; /* Remove default padding */
+    color: #ffeb3b; /* Yellow text */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align items at the top */
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px; /* Add padding to main */
+    box-sizing: border-box; /* Include padding in the width and height */
+    background: #000; /* Ensure background is black */
+    min-height: 100vh; /* Ensure main takes up full height */
+    min-width: 800px;
+}
+
+.container {
+    background: #222; /* Darker background for content */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5),
+        0 20px 40px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-out;
+    width: 100%;
+    max-width: 800px; /* Increase max-width */
+}
+
+section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffeb3b; /* Yellow text */
+}
+
+section p {
+    color: #ffeb3b; /* Yellow text */
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+
+h1 {
+    font-family: "StarJhol", "Arial", sans-serif;
+    color: #ffeb3b; /* Yellow text */
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    /* animation: scroll-text 75s linear infinite; */
+}
+
+/* @keyframes scroll-text {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+} */
+
+button {
+    background-color: #ffeb3b; /* Yellow background */
+    color: #000; /* Black text */
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+button:hover,
+button:focus {
+    background-color: #d4b700;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    transform: translateY(-3px);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label,
+input,
+button {
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items in the middle */
+    width: 100%;
+}
+
+li {
+    background: #333;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    min-width: 200px; /* Ensure each item has a minimum width */
+    color: #ffeb3b;
+    flex: 1 1 calc(33% - 40px); /* Allow for more columns */
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+main {
+    padding: 16px 32px;
+}
+
+section ul {
+    padding: 0;
+    display: grid;
+    grid-gap: 16px;
+    list-style: none;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+li {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: #333333;
+    border: 1px solid rgb(160, 160, 160);
+    color: lightskyblue;
+}
+
+.scroll-text-p {
+    font-family: StarJedi, sans-serif;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+form * {
+    margin-right: 16px;
+}
+
+input,
+button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid rgb(160, 160, 160);
+}
+
+/* Star Wars scrolling text effect */
+.scroll-container {
+    position: relative;
+    height: 400px; /* Adjust height as needed */
+    overflow: hidden;
+    perspective: 400px;
+}
+
+.scroll-text {
+    position: absolute;
+    top: 100%;
+    animation: scroll-up-text 20s linear infinite; /* Adjusted duration */
+    font-family: "StarJhol", sans-serif; /* Use the StarJhol version */
+    color: #ffeb3b; /* Yellow text */
+    font-size: 3em; /* Start large */
+    text-align: center;
+    white-space: nowrap;
+    width: 90%;
+    transform-origin: 50% 100%; /* Pivot point for rotation */
+    transform: rotateX(25deg); /* Added rotation for 3D effect */
+}
+
+@keyframes scroll-up-text {
+    0% {
+        top: 100%;
+        font-size: 3em;
+    }
+    100% {
+        top: -50%;
+        font-size: 1em;
+    }
+}
