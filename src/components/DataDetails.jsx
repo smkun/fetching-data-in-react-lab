@@ -9,7 +9,7 @@ const DataDetails = ({ item, onBack }) => {
     // Function to fetch related data for the item
     const fetchRelatedData = async () => {
       const updatedDetails = { ...item };
-      const fetchFields = ['residents', 'films', 'species', 'homeworld', 'vehicles', 'starships', 'people'];
+      const fetchFields = ['residents', 'films', 'species', 'homeworld', 'vehicles', 'starships', 'people', 'pilots'];
 
       // Iterate over the fields that need to be fetched
       for (const field of fetchFields) {
