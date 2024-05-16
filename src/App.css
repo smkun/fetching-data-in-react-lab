@@ -16,6 +16,8 @@
 body {
     font-family: "Arial", sans-serif;
     background: #000; /* Dark background */
+    background-image: URL('src/assets/images/StarField.jpg');
+    background-size: cover;
     margin: 0;
     padding: 0; /* Remove default padding */
     color: #ffeb3b; /* Yellow text */
