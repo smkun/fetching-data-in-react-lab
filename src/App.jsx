@@ -7,19 +7,17 @@ import DataDetails from "./components/DataDetails";
 import "./App.css";
 
 const App = () => {
-    // State variables
     const [categories, setCategories] = useState({});
     const [selectedCategory, setSelectedCategory] = useState("");
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const [selectedItem, setSelectedItem] = useState(null);
 
-    // Fetch categories on component mount
     useEffect(() => {
         const fetchCategories = async () => {
             try {
                 const data = await getCategories();
-                delete data.films; // Remove films from categories
+                delete data.films;
                 setCategories(data);
             } catch (error) {
                 console.error("Error fetching categories: ", error);
@@ -28,7 +26,6 @@ const App = () => {
         fetchCategories();
     }, []);
 
-    // Fetch data when selected category changes
     useEffect(() => {
         if (selectedCategory) {
             const fetchData = async () => {
@@ -38,7 +35,7 @@ const App = () => {
                     );
                     setData(data);
                     setFilteredData(data);
-                    setSelectedItem(null); // Clear selected item when category changes
+                    setSelectedItem(null);
                 } catch (error) {
                     console.error("Error fetching data: ", error);
                 }
@@ -47,7 +44,6 @@ const App = () => {
         }
     }, [selectedCategory, categories]);
 
-    // Handle search functionality
     const handleSearch = (query) => {
         const filtered = data.filter(
             (item) =>
@@ -57,12 +53,10 @@ const App = () => {
         setFilteredData(filtered);
     };
 
-    // Handle item selection
     const handleSelect = (item) => {
         setSelectedItem(item);
     };
 
-    // Handle back button click
     const handleBack = () => {
         setSelectedItem(null);
         setFilteredData(data);
@@ -90,13 +84,11 @@ const App = () => {
                 </div>
                 {!selectedItem && (
                     <>
-                        {/* Render category dropdown */}
                         <CategoryDropdown
                             categories={categories}
                             onSelect={setSelectedCategory}
                         />
                         {selectedCategory && <Search onSearch={handleSearch} />}
-                        {/* Render data list */}
                         <DataList
                             data={filteredData}
                             onSelect={handleSelect}
@@ -104,10 +96,10 @@ const App = () => {
                     </>
                 )}
                 {selectedItem && (
-                    // Render data details
                     <DataDetails
                         item={selectedItem}
                         onBack={handleBack}
+                        category={selectedCategory}
                     />
                 )}
             </div>
